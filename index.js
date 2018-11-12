@@ -3,7 +3,7 @@ console.log('hello there');
 const express = require('express');
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.urlencoded());
 
 app.get('/', (req,res) => {
   console.log(req.query);
@@ -14,7 +14,7 @@ app.get('/', (req,res) => {
 
 app.post('/', (req, res) => {
   res.send('Hello POST MALONE test!!');
-  console.log(req.query.test);
+  console.log(req.body);
 });
 
 app.get('/test/:id/:kikkel', (req, res) => {
