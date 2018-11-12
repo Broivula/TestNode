@@ -17,7 +17,7 @@ app.get('/', (req,res) => {
 });
 
 app.post('/profile', upload.single('avatar'), (req, res, next) => {
-  res.send('testing upload test!!');
+ // res.send('testing upload test!!');
   res.send(req.query.avatar);
   console.log('regular ass test yo' + req.body);
 });
