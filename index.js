@@ -17,4 +17,9 @@ app.post('/', (req, res) => {
   console.log(req.params);
 });
 
+app.get('/test/:id', (req, res) => {
+  res.send('test test');
+  console.log('test kikkel ');
+})
+
 app.listen(3000);
