@@ -17,9 +17,9 @@ app.post('/', (req, res) => {
   console.log(req.params);
 });
 
-app.get('/test/:id', (req, res) => {
+app.get('/test/:id/:kikkel', (req, res) => {
   console.log(req.params.id);
-  res.send('test test' + req.params.id);
+  res.send('test test' + req.params.id + req.params.kikkel);
   console.log('test kikkel ');
 })
 
