@@ -7,7 +7,7 @@ const upload = multer({dest: 'uploads/'});
 
 app.use(express.urlencoded());
 //app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 app.get('/', (req,res) => {
   console.log(req.query);
