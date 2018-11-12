@@ -7,7 +7,8 @@ app.use(express.static('public'));
 
 app.get('/', (req,res) => {
   console.log(req.query);
-  res.send('Hello World and some other stuff too, yo');
+  const test = req.query.test;
+  res.send('Hello World and some other stuff too, yo' + test);
   console.log('testing nodemon');
 });
 
