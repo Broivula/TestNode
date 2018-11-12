@@ -1,8 +1,9 @@
 'use strict';
 console.log('hello there');
 const express = require('express');
-const bodyParser = require('body-parser');
+const multer = require('multer');
 const app = express();
+const upload = mulet({dest: 'uploads/'});
 
 app.use(express.urlencoded());
 //app.use(bodyParser.urlencoded({extended: false}));
@@ -15,18 +16,22 @@ app.get('/', (req,res) => {
   console.log('testing nodemon');
 });
 
-app.post('/', (req, res) => {
-  res.send('Hello POST MALONE test!!');
-  console.log('regular ass test yo');
+app.post('/profile', upload.single('avatar'), (req, res, next) => {
+  res.send('testing upload test!!');
+  console.log('regular ass test yo' + req.body);
 });
 
 
 
-app.post('/json', (req, res) => {
+app.post('/photos/upload', upload.array('photos', 12),  (req, res, next) => {
   res.send('JSON test');
   console.log(JSON.stringify(req.body, null, 2));
 });
 
+const cpUpload = upload.fields([{name: 'avatar', maxCount: 1}, {name: 'gallery', maxCount: 8}]);
+app.post('/cool-profile', cpUpload, (req, res) => {
+  console.log('uploadin.');
+});
 
 app.get('/test/:id/:kikkel', (req, res) => {
   console.log(req.params.id);
