@@ -1,9 +1,12 @@
 'use strict';
 console.log('hello there');
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.use(express.urlencoded());
+//app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.get('/', (req,res) => {
   console.log(req.query);
@@ -14,8 +17,16 @@ app.get('/', (req,res) => {
 
 app.post('/', (req, res) => {
   res.send('Hello POST MALONE test!!');
-  console.log(req.body);
+  console.log('regular ass test yo');
 });
+
+
+
+app.post('/json', (req, res) => {
+  res.send('JSON test');
+  console.log(JSON.stringify(req.body, null, 2));
+});
+
 
 app.get('/test/:id/:kikkel', (req, res) => {
   console.log(req.params.id);
