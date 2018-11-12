@@ -6,14 +6,14 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  console.log('here we come?');
+  console.log(req.param.);
   res.send('Hello World and some other stuff too, yo');
   console.log('testing nodemon');
 });
 
 app.post('/', (req, res) => {
-  res.send('Hello POST test!!');
-  console.log('POST gets called');
+  res.send('Hello POST MALONE test!!');
+  console.log(req.params);
 });
 
 app.listen(3000);
