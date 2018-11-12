@@ -3,7 +3,7 @@ console.log('hello there');
 const express = require('express');
 const multer = require('multer');
 const app = express();
-const upload = mulet({dest: 'uploads/'});
+const upload = multer({dest: 'uploads/'});
 
 app.use(express.urlencoded());
 //app.use(bodyParser.urlencoded({extended: false}));
