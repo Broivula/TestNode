@@ -14,7 +14,7 @@ app.get('/', (req,res) => {
 
 app.post('/', (req, res) => {
   res.send('Hello POST MALONE test!!');
-  console.log(req.params);
+  console.log(req.query.test);
 });
 
 app.get('/test/:id/:kikkel', (req, res) => {
