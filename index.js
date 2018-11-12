@@ -5,8 +5,8 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  console.log(req.param.);
+app.get('/', (req,res) => {
+  console.log(req.query.test);
   res.send('Hello World and some other stuff too, yo');
   console.log('testing nodemon');
 });
